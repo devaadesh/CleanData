@@ -60,11 +60,15 @@ run_analysis <- function () {
     ##Part 2
     x <- data.frame(all_data[,3], rowMeans(all_data[,-3]))
     
-    #Part 3
+    #Part 3, 4
     all_data$ActivityName <- ifelse (all_data$Activity == 1, "Walking",
                                      ifelse (all_data$Activity == 2, "Walking Upstairs",
                                      ifelse (all_data$Activity == 3, "Walking Downstairs",
                                      ifelse (all_data$Activity == 4, "Sitting",
                                      ifelse (all_data$Activity == 5, "Standing", "Laying")))))
                                      
+    #Part 5
+    out_data <- aggregate(all_data[, 4:564], list(all_data$SubjectNumber, all_data$ActivityName), mean)
+    write.table(out_data, "out.txt")    
+
 }
