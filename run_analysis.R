@@ -69,6 +69,8 @@ run_analysis <- function () {
                                      
     #Part 5
     out_data <- aggregate(all_data[, 4:564], list(all_data$SubjectNumber, all_data$ActivityName), mean)
+    names(out_data)[1] <- "SubjectNumber"
+    names(out_data)[2] <- "ActivityName"
     write.table(out_data, "out.txt")    
 
 }
