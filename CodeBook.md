@@ -1,17 +1,20 @@
 # Codebook
 
 ## Part 1
-1. Read the acvitity "lookup" data into dat_acti
-2. Set column name to a descriptive value
+1. Read the activity "lookup" data into data table: dat_acti
+2. Set column name to a descriptive value: ActivityName
 
 ### For "test" data
-1. Read the subject data, measurment data and activity data into data tables
-2. Set column names to a descriptive values for subject and activity data
+1. Read the subject data, measurment data and activity data into data tables- test_subject, test_meas, and test_acti resp. 
+2. Set column names to a descriptive values for subject (SubjectNumber) and activity (Activity) data
 3. Add an sequential ID column to each data table to enable data merging
-4. Merge the three data tables into one "test_data" table
+4. Merge the three data tables into one "test_data" table, using the ID column
 
 ### For "training" data
-1. Repeat steps 1-4 above for the training data, and get merged data into "training_data" table
+1. Read the subject data, measurment data and activity data into data tables- train_subject, train_meas, and train_acti resp. 
+2. Set column names to a descriptive values for subject (SubjectNumber) and activity (Activity) data
+3. Add an sequential ID column to each data table to enable data merging
+4. Merge the three data tables into one "train_data" table, using the ID column
 
 ### Merge test and training data
 1. As the columns are similar in both the test and training data set, combine data using rbind(test_data, training_data) into "all_data"
