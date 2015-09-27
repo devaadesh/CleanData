@@ -1,23 +1,25 @@
-## run_analysis
-
+## 
+## Getting and Cleaning data course project -- run_analysis
+## Assumes that all the data files are in the UCI HAR Dataset folder
+##
 run_analysis <- function () {
 
     # get activity labels and set column name    
-    dat_acti <- read.table("getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/activity_labels.txt", sep=" ", header=FALSE)
+    dat_acti <- read.table("UCI HAR Dataset/activity_labels.txt", sep=" ", header=FALSE)
     setnames(dat_acti, c("Activity", "ActivityName"))
 
     ########### "TEST" data 
     # get activity data and set column name    
-    test_acti <- read.table("getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt", sep=" ", header=FALSE)
+    test_acti <- read.table("UCI HAR Dataset/test/y_test.txt", sep=" ", header=FALSE)
     setnames(test_acti, c("Activity"))
     
     # get subject data and set column name        
-    test_subject <- read.table("getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt", sep=" ", header=FALSE)
+    test_subject <- read.table("UCI HAR Dataset/test/subject_test.txt", sep=" ", header=FALSE)
     setnames(test_subject, c("SubjectNumber"))
 
     # get measurement data
     # without the separator
-    test_meas <- read.table("getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/x_test.txt", header=FALSE)
+    test_meas <- read.table("UCI HAR Dataset/test/x_test.txt", header=FALSE)
 
     # add ID column to enable merge
     test_acti$ID <- seq.int(nrow(test_acti))
@@ -32,16 +34,16 @@ run_analysis <- function () {
     
     ########### "TRAINING" data 
     # get activity data and set column name    
-    train_acti <- read.table("getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt", sep=" ", header=FALSE)
+    train_acti <- read.table("UCI HAR Dataset/train/y_train.txt", sep=" ", header=FALSE)
     setnames(train_acti, c("Activity"))
     
     # get subject data and set column name        
-    train_subject <- read.table("getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt", sep=" ", header=FALSE)
+    train_subject <- read.table("UCI HAR Dataset/train/subject_train.txt", sep=" ", header=FALSE)
     setnames(train_subject, c("SubjectNumber"))
 
     # get measurement data
     # without the separator
-    train_meas <- read.table("getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/x_train.txt", header=FALSE)
+    train_meas <- read.table("UCI HAR Dataset/train/x_train.txt", header=FALSE)
 
     # add ID column to enable merge
     train_acti$ID <- seq.int(nrow(train_acti))
