@@ -21,3 +21,6 @@
 
 ## Part 3, 4
 1. Using the ifelse() function, add a new column "ActivityName" to the combined "all_data" depending on the activity label
+
+## Part 5
+1. Using the aggregate() function, compute the average of measurements for each subject and activity in the "all_data" data table
