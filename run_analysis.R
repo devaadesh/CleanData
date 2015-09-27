@@ -68,9 +68,15 @@ run_analysis <- function () {
                                      ifelse (all_data$Activity == 5, "Standing", "Laying")))))
                                      
     #Part 5
-    out_data <- aggregate(all_data[, 4:564], list(all_data$SubjectNumber, all_data$ActivityName), mean)
-    names(out_data)[1] <- "SubjectNumber"
-    names(out_data)[2] <- "ActivityName"
-    write.table(out_data, "out.txt")    
-
+    out_data <- aggregate(all_data[, 4:564], list(all_data$ActivityName, all_data$SubjectNumber), mean)
+    
+    # set column names
+    names(out_data)[1] <- "ActivityName"
+    names(out_data)[2] <- "SubjectNumber"
+    
+    #sort by activyt name, subject number using dplyr arrange()
+    out_data <- arrange(out_data, ActivityName, SubjectNumber)
+    
+    #write to file
+    write.table(out_data, "TidyExerciseData.txt", row.names = FALSE)    
 }
